@@ -13,6 +13,8 @@ pipeline {
       steps {
         container('maven') {
           dir('env') {
+            sh 'helm version'
+            sh 'helm ls --short'
             //sh 'jx step helm build'
           }
         }
