@@ -13,7 +13,8 @@ pipeline {
       steps {
         container('maven') {
           dir('env') {
-            //sh 'jx step helm build'
+            sh 'helm init --client-only --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.10.0-rc.1 --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts'
+            sh 'jx step helm build'
           }
         }
       }
